@@ -172,7 +172,7 @@ export const projects = [
     id: 2,
     title: "Brain Tumor Detection",
     description:
-      "A medical imaging project using a convolutional neural network to detect brain tumors in MRI scans. Aimed at supporting early diagnosis and radiology automation.",
+      "A medical imaging project experimented using improved sparrow search algorithm .",
     image: brainLogo,
     tags: ["Deep Learning", "Medical Imaging", "PyTorch", "CNN"],
     github: "https://github.com/Meghana-Kuruva/Brain-tumor-classification.git",
@@ -202,7 +202,7 @@ export const projects = [
     id: 5,
     title: "NetworkX Visualizer",
     description:
-      "A web tool to visualize and explore graph algorithms like Dijkstra’s and DFS/BFS using NetworkX on the backend and a dynamic React-based frontend.",
+      "It is an real time  Chat application where people can find there people with similar interest .",
     image: networkxLogo,
     tags: ["React", "NetworkX", "Flask", "Graph Algorithms", "Python"],
     github: "https://github.com/vitesh-reddy/Networx.git",
@@ -212,7 +212,7 @@ export const projects = [
     id: 6,
     title: "Rhyno EV Website",
     description:
-      "Frontend for Rhyno's electric vehicle brand, showcasing products, purchase features, and user dashboards. Designed for performance and brand impact using Tailwind and Vite.",
+      "Frontend for Rhyno's electric vehicle brand, showcasing products, purchase features, and user dashboards. Designed for performance and brand impact using Tailwind and Vite. Currently working on this project ",
     image: rhynoLogo,
     tags: ["React", "Tailwind CSS", "Vite", "Responsive UI"],
     github: "https://github.com/Meghana-Kuruva/RHYNO-EV__Project.git",
@@ -224,7 +224,7 @@ export const projects = [
     description:
       "A responsive travel service website allowing users to browse curated tours, destinations, and bookings. Developed using React and Tailwind CSS.",
     image: backroadsLogo,
-    tags: ["React", "Tailwind CSS", "Responsive Design"],
+    tags: ["HTML", " CSS ", "Java Script ", "Responsive Design "],
     github: "https://github.com/Meghana-Kuruva/TourProject.git",
     webapp: "https://meghana-kuruva.github.io/TourProject/",
   },
