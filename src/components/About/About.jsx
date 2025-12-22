@@ -3,7 +3,39 @@ import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
 import profileImage from '../../assets/profile2.png';
 
+// Import the PDF with ?url to get the proper public URL
+import resumeFile from '../../assets/Meghana_Kuruva_Resume.pdf?url';
+
 const About = () => {
+  // Function to handle PDF download properly
+  const handleDownload = async (e) => {
+    e.preventDefault();
+    
+    try {
+      // Fetch the PDF as a blob
+      const response = await fetch(resumeFile);
+      const blob = await response.blob();
+      
+      // Create a temporary URL for the blob
+      const url = window.URL.createObjectURL(blob);
+      
+      // Create a temporary link and trigger download
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Meghana_Kuruva_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback to direct link if fetch fails
+      window.location.href = resumeFile;
+    }
+  };
+
   return (
     <section
       id="about"
@@ -16,18 +48,20 @@ const About = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
             Hi, I am
           </h1>
+
           {/* Name */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-          Meghana Kuruva
+            Meghana Kuruva
           </h2>
-          {/* Skills Heading with Typing Effect */}
+
+          {/* Skills Typing Effect */}
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[#8245ec] leading-tight">
             <span className="text-white">I am a </span>
             <ReactTypingEffect
               text={[
                 'Fullstack Developer',
-                 'AI/ML Enthusiast' , 
-                 'Coder',
+                'AI/ML Enthusiast',
+                'Coder',
               ]}
               speed={100}
               eraseSpeed={50}
@@ -38,26 +72,26 @@ const About = () => {
               )}
             />
           </h3>
-          {/* About Me Paragraph */}
+
+          {/* About Me */}
           <p className="text-base sm:text-lg md:text-lg text-gray-400 mb-10 mt-8 leading-relaxed">
-            I am a B.Tech Computer Science and Engineering student passionate about creating innovative and efficient web solutions. Skilled in both front-end and back-end development, I have hands-on experience with the MERN stack and other modern technologies. I enjoy building responsive, user-friendly applications and continuously exploring new tools and frameworks to enhance my skills and deliver impactful projects.
+            I am a B.Tech Computer Science and Engineering student passionate about creating innovative and efficient web solutions. Skilled in both front-end and back-end development, I have hands-on experience with the MERN stack and other modern technologies.
           </p>
-          {/* Resume Button */}
-          <a
-            href="/Meghana_Kuruva_Resume.pdf"
-            download="Meghana_Kuruva_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
+
+          {/* FIXED DOWNLOAD BUTTON with onClick handler */}
+          <button
+            onClick={handleDownload}
+            className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105 cursor-pointer"
             style={{
               background: 'linear-gradient(90deg, #8245ec, #a855f7)',
               boxShadow: '0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec',
+              border: 'none'
             }}
           >
             DOWNLOAD RESUME
-          </a>
-          
+          </button>
         </div>
+
         {/* Right Side */}
         <div className="md:w-1/2 flex justify-center md:justify-end">
           <Tilt
@@ -71,7 +105,7 @@ const About = () => {
           >
             <img
               src={profileImage}
-              alt="Tarun Kaushik"
+              alt="Meghana Kuruva"
               className="w-full h-full rounded-full object-cover drop-shadow-[0_10px_20px_rgba(130,69,236,0.5)]"
             />
           </Tilt>
