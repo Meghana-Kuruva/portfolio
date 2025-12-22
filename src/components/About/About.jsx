@@ -3,37 +3,16 @@ import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
 import profileImage from '../../assets/profile2.png';
 
-// Import the PDF with ?url to get the proper public URL
-import resumeFile from '../../assets/Meghana_Kuruva_Resume.pdf?url';
+// Remove the ?url - just import normally
+import resumeFile from '../../assets/Meghana_Kuruva_Resume.pdf';
 
 const About = () => {
-  // Function to handle PDF download properly
-  const handleDownload = async (e) => {
-    e.preventDefault();
-    
-    try {
-      // Fetch the PDF as a blob
-      const response = await fetch(resumeFile);
-      const blob = await response.blob();
-      
-      // Create a temporary URL for the blob
-      const url = window.URL.createObjectURL(blob);
-      
-      // Create a temporary link and trigger download
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Meghana_Kuruva_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      
-      // Cleanup
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Download failed:', error);
-      // Fallback to direct link if fetch fails
-      window.location.href = resumeFile;
-    }
+  // Simpler download handler
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = resumeFile;
+    link.download = 'Meghana_Kuruva_Resume.pdf';
+    link.click();
   };
 
   return (
@@ -78,7 +57,7 @@ const About = () => {
             I am a B.Tech Computer Science and Engineering student passionate about creating innovative and efficient web solutions. Skilled in both front-end and back-end development, I have hands-on experience with the MERN stack and other modern technologies.
           </p>
 
-          {/* FIXED DOWNLOAD BUTTON with onClick handler */}
+          {/* Download Button */}
           <button
             onClick={handleDownload}
             className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105 cursor-pointer"
