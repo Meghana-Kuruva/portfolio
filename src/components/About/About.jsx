@@ -4,7 +4,7 @@ import Tilt from 'react-parallax-tilt';
 import profileImage from '../../assets/profile2.png';
 
 // Remove the ?url - just import normally
-import resumeFile from '../../assets/Meghana_Kuruva_Resume.pdf';
+import resumeFile from '../../../public/Meghana_Kuruva_Resume.pdf';
 
 const About = () => {
   // Simpler download handler
